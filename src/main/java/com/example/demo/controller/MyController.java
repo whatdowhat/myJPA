@@ -31,6 +31,12 @@ public class MyController {
 	DepartmentRepository departmentRepository;
 	
 	
+	@RequestMapping("/")
+	String goIndex() {
+		
+		return "index";
+	}
+	
 	@RequestMapping("/h1")
 	String goPageb() {
 		
