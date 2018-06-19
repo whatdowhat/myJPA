@@ -1,12 +1,13 @@
 package com.example.demo.controller;
 
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,9 +22,15 @@ import com.example.demo.domain.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+
 @Controller()
 public class MyController {
 
+	
+
+	protected Logger logger = LoggerFactory.getLogger(MyController.class);
+	
 	@Autowired
 	MemberRepository repository;
 	
@@ -33,6 +40,12 @@ public class MyController {
 	
 	@RequestMapping("/")
 	String goIndex() {
+		
+		
+		logger.info(MessageFormat.format("#########{0}#############", "info"));
+		logger.debug(MessageFormat.format("#########{0}#############", "debug"));
+		logger.error(MessageFormat.format("#########{0}#############", "error"));
+		
 		
 		return "index";
 	}
